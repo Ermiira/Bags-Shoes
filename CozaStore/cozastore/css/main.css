@@ -202,6 +202,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   height: auto;
   width: 100%;
   position: relative;
+  z-index: 900;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   -moz-transition: all 0.3s;
