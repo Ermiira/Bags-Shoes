@@ -87,6 +87,9 @@
 							<li>
 								<a href="product.html"> New Arrivals </a>
 							</li>
+							<li>
+								<a href="product.html"> Deals </a>
+							</li>
 
 							<li>
 								<a href="about.html">About us</a>
@@ -100,9 +103,11 @@
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 snipcart-user-profile"  >
+									<i  class="iconify" data-icon="zmdi-accounts"></i>
+								</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  js-show-cart snipcart-checkout" data-notify="2">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 snipcart-checkout " data-notify="2">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
@@ -123,6 +128,10 @@
 
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart" >
+							<i  class="iconify" data-icon="zmdi-accounts"></i>
+						</div>
 				
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart" >
 					<i class="zmdi zmdi-shopping-cart"></i>
@@ -131,6 +140,9 @@
 				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 " >
 					<i class="zmdi zmdi-favorite-outline"></i>
 				</a>
+				
+				
+				
 			</div>
 
 			<!-- Button show menu -->
@@ -185,6 +197,9 @@
 				<li>
 					<a href="product.html"> New Arrivals </a>
 				</li>
+				<li>
+					<a href="product.html"> Deals </a>
+				</li>
 
 				<li>
 					<a href="about.html">About us</a>
@@ -222,8 +237,11 @@
 						Men
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".new">
 						New Arrivals
+					</button>
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".deals">
+						Deals
 					</button>
 
 					
@@ -509,7 +527,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women new">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -660,8 +678,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</span>
 	</div>
 
-	<!-- Modal1 -->
-	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+		<!-- Modal1 -->
+		<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
 		<div class="overlay-modal1 js-hide-modal1"></div>
 
 		<div class="container">
@@ -779,10 +797,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
-
-										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart
-										</button>
+												<!-- flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 -->
+											<button
+												class="snipcart-add-item "
+												data-item-id="3"
+												data-item-name="Handbag Jenny Fairy "
+												data-item-price="€45.50"
+												data-item-weight="0.534 kg"
+												data-item-url="/"
+												data-item-image="images/3a.jpg"
+												data-item-max-quantity="10"
+												data-item-quantity-step="1"
+												data-item-custom2-name="Color"
+												data-item-custom2-options="Red|Blue|Grey"
+												data-item-description="The latest trends at affordable prices are the basic characteristics of the JENNY FAIRY brand.">
+												Add to cart
+										    </button>
 									</div>
 								</div>	
 							</div>
@@ -812,7 +842,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</div>
 			</div>
 		</div>
-	</div>
+		</div>
 
 		<!-- Modal2 -->
 		<div class="wrap-modal1 js-modal2 p-t-60 p-b-20">
@@ -1073,9 +1103,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 												</div>
 											</div>
 	
-											<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											
+												<button
+												class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail snipcart-add-item"
+												data-item-id="3"
+												data-item-name="Handbag Jenny Fairy "
+												data-item-price="€45.50"
+												data-item-weight="0.534 kg"
+												data-item-url="/"
+												data-item-image="images/3a.jpg"
+												data-item-max-quantity="10"
+												data-item-quantity-step="1"
+												data-item-custom2-name="Color"
+												data-item-custom2-options="Red|Blue|Grey"
+												data-item-description="The latest trends at affordable prices are the basic characteristics of the JENNY FAIRY brand.">
 												Add to cart
-											</button>
+										    	</button>
+												
+											
 										</div>
 									</div>	
 								</div>
@@ -1206,10 +1251,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		});
 	</script>
 
+<script src="https://code.iconify.design/1/1.0.1/iconify.min.js"></script>
+
 <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" data-api-key="ODQ4NTUxMDYtMzQ1Ny00MWE3LWExOGQtYThmYjNlMjU3OWQxNjM2ODg5MjU4MTY2NjMyOTM0
 " id="snipcart" data-autopop="false"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+	  
+		gtag('config', 'GA_MEASUREMENT_ID');
+	  </script>
+
 
 </body>
 </html>
