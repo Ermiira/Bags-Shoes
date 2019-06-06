@@ -254,7 +254,7 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product-detail" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									Valentino Garavani Bounce sneakers
 								</a>
 
@@ -286,7 +286,7 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail2.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product-detail2" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									Half Shoe Lanetti
 								</a>
 
@@ -318,7 +318,7 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail3.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product-detail3" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									Handbag Jenny Fairy 
 								</a>
 
@@ -349,51 +349,3 @@
 			</div>
 		</div>
 	</div>
-
-
-
-<script>
-	fetch('/api/products/1')
-		.then(function (response) {
-			return response.json();
-		})
-		.then(function (product) {
-			debugger
-			var el = document.querySelector('.details_name');
-			el.innerHTML = product.name;
-		});
-		
-
-
-	fetch('/products', {
-  method: 'POST', 
-  body: JSON.stringify(data), 
-  headers:{
-    'Content-Type': 'application/json'
-  }
-}).then(res => res.json())
-.then(response => console.log('Success:', JSON.stringify(response)))
-
-
-/ Get product with id 2
-fetch('/products/2')
-  .then(response => response.json())
-  .then(data => console.log(data))
-
-fetch('/category/1')
-  .then(response => response.json())
-  .then(data => console.log(data))
-
-fetch('/category', {
-  headers: { "Content-Type": "application/json; charset=utf-8" },
-  method: 'POST',
-  body: JSON.stringify({
-    catName: category.name
-  })
-})
-
-fetch('/subcategory/1')
-  .then(response => response.json())
-  .then(data => console.log(data))
-
-</script>
