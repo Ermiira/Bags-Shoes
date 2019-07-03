@@ -34,6 +34,15 @@ router.get('/',async function (req, res) {
 });
 
 
+router.get("/about",function(req,res){
+  res.render("about");
+})
+
+router.get("/contact",function(req,res){
+  res.render("contact");
+})
+ 
+
 router.get('/bags',async function (req, res) {
     
   const connection = await SqlProvider.getConnection();
@@ -211,9 +220,13 @@ router.get('/:id', async function (req, res) {
     var productId= req.params.id;
     var sql = 'SELECT * FROM `products` where productId=?';
 
-     var results = await connection.query(sql ,[productId])
-     res.render("product-detail", { results:results })
-       //res.json(result);
+     await connection.query(sql , [productId] , function (error, details) {
+      if (error) throw error;
+      
+      console.log(details);
+     res.render("product-detail", { details:details })
+     });
+      res.json(details);
       // res.end(JSON.stringify(result)) ;
   
 });

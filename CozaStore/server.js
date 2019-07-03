@@ -39,27 +39,8 @@ app.get("/", async function(req,res){
    
 })
 
-app.get("/about",function(req,res){
-    res.render("about");
-})
-
-app.get("/contact",function(req,res){
-    res.render("contact");
-})
-    
-  
- app.get("/product-detail",function(req,res){
-    res.render("product-detail");
-   })
  
-   app.get("/product-detail2",function(req,res){
-    res.render("product-detail2");
-   })
 
-   app.get("/product-detail3",function(req,res){
-    res.render("product-detail3");
-   })
- 
 app.listen(port,function(){
     console.log("app running");
 })

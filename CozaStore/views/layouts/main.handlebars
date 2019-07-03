@@ -78,27 +78,23 @@
 								</li>
 	
 								<li>
-									<a href="api/products/shoes">Shoes</a>
+									<a href="shoes">Shoes</a>
 
 									<ul class="sub-menu">
 										{{#each subcategory}}
-										<li><a href="api/products/shoes/{{this.subcatName}}">{{this.subcatName}}  </a></li>
+										<li><a href="shoes/{{this.subcatName}}">{{this.subcatName}}  </a></li>
 										{{/each}}
 									</ul>
 									
 								</li>
 	
 								<li  >
-									<a href="api/products/bags">Bags</a>
+									<a href="bags">Bags</a>
 									<ul class="sub-menu">
 										{{#each subcategory}}
-										<li><a href="api/products/bags/{{this.subcatName}}">{{this.subcatName}}  </a></li>
+										<li><a href="bags/{{this.subcatName}}">{{this.subcatName}}  </a></li>
 										{{/each}}
-										{{!-- <li><a href="#"> Wallets </a></li>
-										<li><a href="#"> Belt Bags </a></li>
-										<li><a href="#"> Shoulder Bags </a></li>
-										<li><a href="#"> Clutch bag</a></li>
-										<li><a href="#"> Bag Accessories </a></li> --}}
+										
 	
 									</ul>
 								</li>
@@ -179,13 +175,11 @@
 					
 	
 					<li>
-						<a href="product">Shoes</a>
+						<a href="shoes">Shoes</a>
 						<ul class="sub-menu-m">
-							<li><a href="#"> Sandals </a></li>
-							<li><a href="#"> Heels </a></li>
-							<li><a href="#"> Sneakers </a></li>
-							<li><a href="#"> Boots </a></li>
-							<li><a href="#"> Casual Shoes </a></li>
+							{{#each subcategory}}
+								<li><a href="bags/{{this.subcatName}}">{{this.subcatName}}  </a></li>
+							{{/each}}
 						</ul>
 						<span class="arrow-main-menu-m">
 							<i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -193,13 +187,11 @@
 					</li>
 	
 					<li  >
-						<a href="product">Bags</a>
+						<a href="bags">Bags</a>
 						<ul class="sub-menu-m">
-							<li><a href="#"> Wallets </a></li>
-							<li><a href="#"> Belt Bags </a></li>
-							<li><a href="#"> Shoulder Bags </a></li>
-							<li><a href="#"> Clutch bag</a></li>
-							<li><a href="#"> Bag Accessories </a></li>
+							{{#each subcategory}}
+								<li><a href="bags/{{this.subcatName}}">{{this.subcatName}}  </a></li>
+							{{/each}}
 	
 						</ul>
 						<span class="arrow-main-menu-m">
