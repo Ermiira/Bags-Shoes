@@ -260,29 +260,18 @@ router.get('/subcategory', async function (req, res) {
 
 });
 
-//router.get('/:id', async function (req, res) {
-
-  //const connection = await SqlProvider.getConnection();
-
-  //var productId = req.params.id;
-  //var sql = 'SELECT * FROM `products` where productId=?';
-
-  //await connection.query(sql, [productId], function (error, details) {
-    //if (error) throw error;
-
-    //console.log(details);
-   // res.render("product-detail", { details: details })
- // });
-  //res.json(details);
-//});
 
 router.get('/:id', async function (req, res) {
-  try {
-    const product = await ProductService.getById(req.params.id);
-    return res.send(product);
-  } catch (err) {
-    res.send(err.message).end();
-  }
+ 
+  const connection = await SqlProvider.getConnection();
+
+  var productId= req.params.id;
+  connection.query('SELECT * FROM `products` where productId='+ productId, function (error, prod, fields) {
+    if (error) throw error;
+    res.render("product-detail",{ prod: prod});
+  });
+   //res.json(prod);
+
 });
 
 
@@ -299,20 +288,10 @@ router.delete('/:id', async function (req, res) {
 });
 
 
-router.get("/photo/:id", async function (req, res) {
-  const connection = await SqlProvider.getConnection();
-
-  var productId = req.params.id;
-  var sql = 'SELECT photourl FROM `products` where productId=?';
-
-  var result = await connection.query(sql, [productId])
-  res.render(result);
-
-});
 
 
-router.get("/inserto.html", function (req, res) {
-  res.sendFile('inserto.html', { root: __dirname + '/views' });
+router.get("/inserto", function (req, res) {
+  res.render('inserto');
 });
 
 router.post("/test", authMiddleware ,upload.single('foto'), async function (req, res) {
@@ -327,10 +306,14 @@ router.post("/test", authMiddleware ,upload.single('foto'), async function (req,
   const kategoria = req.body.kategoria1
   const nenkategoria = req.body.nenkategoria1
   const photoname = req.file.originalname
-
-  //kjo query ka shku e njejt qysh u kan
-  const sql = "INSERT INTO products (categoryId,subcategoryId,pName, pPrice, pWeight, pDescription,photoblob,photourl,photoname) VALUES (?,?,?,?,?,?,?,?,?)";
-  connection.query(sql, [kategoria, nenkategoria, emri, cmimi, pesha, pershkrimi, img, url, photoname], (err, results, fields) => {
+  const gender = req.body.gjinia
+  const sector = req.body.sektori
+  const colors = req.body.ngjyra
+  const numbers = req.body.numri
+  const materials = req.body.materiali
+  
+  const sql = "INSERT INTO products (categoryId,subcategoryId,pName, pPrice, pWeight, pDescription,photoblob,photourl,photoname,gender,sector,colors,numbers,material) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  connection.query(sql, [kategoria, nenkategoria, emri, cmimi, pesha, pershkrimi, img, url, photoname,gender,sector,colors,numbers,materials], (err, results, fields) => {
     if (err) {
       console.log("Insertimi deshtoi. " + err)
       res.sendStatus(500)
@@ -344,7 +327,7 @@ router.post("/test", authMiddleware ,upload.single('foto'), async function (req,
 
 
 
-//me ndreq, duhet me ndreq qeta
+
 router.post('/:id/photos', authMiddleware,async function (req, res) {
 
   const url = './public/images/' + req.params.photos;
@@ -440,14 +423,13 @@ router.post('/webhook', async function (req, res) {
           const connection =  SqlProvider.getConnection();
            nrOrders=nrOrders+1;
 
-          const result =  connection.query('Update orders SET nrOrders where productId=?', [nrOrders, pId]);
+          const result =  connection.query('Update orders SET nrOrders='+nrOrders +'where productId='+pId,[nrOrders, pId]);
           const udpatedObject = result[0];
 
           if (udpatedObject.affectedRows === 0) {
             return res.send(HTTPStatus.NOT_FOUND).end();
           }
-        
-          return res.send(HTTPStatus.OK).end();
+                 return res.send(HTTPStatus.OK).end();
 
         });
   

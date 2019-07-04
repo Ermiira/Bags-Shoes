@@ -1,31 +1,29 @@
-
-	
-
-	<!-- breadcrumb -->
-	<div class="container p-t-70">
-		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index" class="stext-109 cl8 hov-cl1 trans-04">
-				Home
-				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-			</a>
-
-			<a href="product" class="stext-109 cl8 hov-cl1 trans-04">
-				Women
-				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-			</a>
-
-			<span class="stext-109 cl4">
-				{{pName}}
-			</span>
-		</div>
-	</div>
-		
-
 	<!-- Product Detail -->
 
+{{#each prod}}
 	
-	<section class="sec-product-detail bg0 p-t-65 p-b-60">
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">a
 		<div class="container">
+
+		<!-- breadcrumb -->
+			<div class="container p-t-70">
+				<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+					<a href="index" class="stext-109 cl8 hov-cl1 trans-04">
+						Home
+						<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+					</a>
+
+					<a href="product" class="stext-109 cl8 hov-cl1 trans-04">
+						Women
+						<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+					</a>
+
+					<span class="stext-109 cl4">
+						{{this.pName}} 
+					</span>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-md-6 col-lg-7 p-b-30">
 					<div class="p-l-25 p-r-30 p-lr-0-lg">
@@ -34,21 +32,21 @@
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 							<div class="slick3 gallery-lb">
-								<div class="item-slick3" data-thumb="images/1b.jpg">
+								<div class="item-slick3" data-thumb="images/{{this.productId}}b.jpg">
 									<div class="wrap-pic-w pos-relative">
-										<img src="/public/images/{{photoname}}" alt="IMG-PRODUCT">
+										<img src="/public/images/{{this.productId}}b.jpg" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/public/images/1b.jpg">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/public/images/{{this.productId}}b.jpg">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
 								</div>
 
-								<div class="item-slick3" data-thumb="images/1c.jpg">
+								<div class="item-slick3" data-thumb="images/{{this.productId}}c.jpg">
 									<div class="wrap-pic-w pos-relative">
-										<img src="/public/images/1c.jpg" alt="IMG-PRODUCT">
+										<img src="/public/images/{{this.productId}}c.jpg" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/public/images/1c.jpg">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/public/images/{{this.productId}}c.jpg">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
@@ -56,9 +54,9 @@
 
 								<div class="item-slick3" data-thumb="images/1d.jpg">
 									<div class="wrap-pic-w pos-relative">
-										<img src="/public/images/1d.jpg" alt="IMG-PRODUCT">
+										<img src="/public/images/{{this.productId}}d.jpg" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/public/images/1d.jpg">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/public/images/{{this.productId}}d.jpg">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
@@ -71,15 +69,15 @@
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-							{{pName}}
+							{{this.pName}}
 						</h4>
 
 						<span class="mtext-106 cl2">
-							€{{pPrice}}
+							€{{this.pPrice}}
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
-							{{pDescription}}
+							{{this.pDescription}}
 						</p>
 						
 						<!--  -->
@@ -90,20 +88,20 @@
 									 
 									<button
 									class="snipcart-add-item flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 "
-									data-item-id="{{productId}}"
+									data-item-id="{{this.productId}}"
 									onclick="myFunction()"
-									data-item-name="{{pName}}"
-									data-item-price="{{pPrice}}"
-									data-item-weight=" {{pWeight}} "
-									data-item-url="https://calm-savannah-14250.herokuapp.com/product-detail"
-									data-item-image="/public/images/{{photoname}}"
+									data-item-name="{{this.pName}}"
+									data-item-price="{{this.pPrice}}"
+									data-item-weight=" {{this.pWeight}} "
+									data-item-url="api/product/{{this.productId}}"
+									data-item-image="/public/images/{{this.photoname}}"
 									data-item-max-quantity="6"
 									data-item-quantity-step="1"
 									data-item-custom2-name="Color"
-									data-item-custom2-options="Black|White|Grey|Red "
+									data-item-custom2-options="{{this.colors}}"
 									data-item-custom3-name="Size"
-									data-item-custom3-options="36|37|38|39|40  " 
-									data-item-description="{{pDescription}}">
+									data-item-custom3-options="{{this.numbers}}" 
+									data-item-description="{{this.pDescription}}">
 									Add to cart
 									</button>
 								</div>
@@ -157,7 +155,7 @@
 							<div class="how-pos2 p-lr-15-md">
 								<p class="stext-102 cl6">
 									
-									{{pDescription}}
+									{{this.pDescription}}
 									
 																</p>
 							</div>
@@ -174,27 +172,18 @@
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												{{pWeight}} kg
+												{{this.pWeight}} kg
 											</span>
 										</li>
 
-										<li class="flex-w flex-t p-b-7">
-											<span class="stext-102 cl3 size-205">
-												Brand
-											</span>
-
-											<span class="stext-102 cl6 size-206">
-												Valentino Garavani
-											</span>
-										</li>
-
+									
 										<li class="flex-w flex-t p-b-7">
 											<span class="stext-102 cl3 size-205">
 												Materials
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												Textile , Leatherette
+												{{this.material}}
 											</span>
 										</li>
 
@@ -204,7 +193,7 @@
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												Black, Grey, Red, White
+												{{this.colors}}
 											</span>
 										</li>
 
@@ -214,7 +203,7 @@
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												36,37,38,39,40
+												{{this.size}}
 											</span>
 										</li>
 									</ul>
@@ -236,8 +225,10 @@
 				Categories: Sneakers , Women
 			</span>
 		</div>
+		</div>
 	</section>
 	
+{{/each}}
 
 	<!-- Related Products -->
 	<section class="sec-relate-product bg0 p-t-45 p-b-105">

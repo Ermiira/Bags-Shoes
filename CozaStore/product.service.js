@@ -10,7 +10,10 @@ class ProductService {
 
         const connection = await SqlProvider.getConnection();
     
-        const result = await connection.query('SELECT * FROM `products` where id=?', id);
+        const result = await connection.query('select p.productId,p.categoryId,c.catName,p.subcategoryId,'+
+        's.subcatName,p.pName,p.pPrice, p.pWeight,p.pDescription,p.photoblob,p.photourl,p.photoname'+
+        '  from products p,category c,subcategory s '+
+        ' where p.categoryId=c.categoryId and p.subcategoryId=s.subcategoryId and p.categoryId=s.categoryId and productId=?', id);
         const rows = result[0];
     
         if (!rows[0]) {  // if no row is returned

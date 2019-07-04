@@ -1,0 +1,59 @@
+
+<h1 id="id1">Insert products</h1>
+<div class="korniza">
+<form action="/api/products/test" method="POST" enctype="multipart/form-data" ><div class="tss">
+Product Name: <input class="form-control" type="text" name="emri1" required/><br><br>
+Price: <input class="form-control" type="text" name="cmimi1" required /><br><br>
+Weight: <input class="form-control" type="number" name="pesha1" required /><br><br>
+Description: <input id="pershkrimi" class="inputet" type="text" name="pershkrimi1" required /><br><br>
+Category: <select class="inputet" name="kategoria1" required>
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select><br><br>
+Subcategory: <select class="inputet" name="nenkategoria1" >
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    
+  </select><br><br>
+Photo: <input class="inputet" type="file" name="foto" required /><br><br>
+<br><br>
+Gender : <select class="inputet" name="gjinia" >
+    <option value="F">F</option>
+    <option value="M">M</option>
+  </select>
+  <br><br>
+
+Sector: <select class="inputet" name="sektori" >
+    <option value="New">New</option>
+    <option value="Deals">Deals</option>
+   
+  </select>
+Colors: <select class="inputet" name="ngjyra" >
+    <option value="Red | Blue | Grey | Green | Yellow | Pink">Red | Blue | Grey | Green | Yellow | Pink</option>
+    <option value="Black | White | Grey">Black | White | Grey</option>
+    
+  </select>
+
+  <br><br>
+
+Numbers: <select class="inputet" name="numri" >
+    <option value="36|37|38|38|40">36|37|38|38|40</option>
+    <option value="41|42|43|44|45">41|42|43|44|45</option>  
+  </select>
+
+  <br><br>
+
+Material: <select class="inputet" name="materiali" >
+    <option value="Leather">Leather</option>
+    <option value="Textile">Textile</option>
+    <option value="Pinatex">Pinatex</option>
+   
+  </select>
+  <br><br>
+  <button id="butoni" class=".btn-primary"> Insert </button>
+  </div>
+</form>
+</div>

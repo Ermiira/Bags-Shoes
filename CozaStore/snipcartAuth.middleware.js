@@ -7,7 +7,7 @@ const authMiddleware = async function (req, res, next) {
         return res.status(HTTPStatus.FORBIDDEN).end();
     }
     
-   // const admins = ['test@test.com', 'ermira.selmani98@gmail.com'];
+   
 
    const connection = await SqlProvider.getConnection();
    await connection.query('SELECT userEmail FROM users', function (error, results, fields) {
