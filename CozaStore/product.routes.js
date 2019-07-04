@@ -3,7 +3,6 @@ const router = express.Router();
 const SqlProvider = require('./sql.provider');
 const path = require("path");
 const bodyParser = require('body-parser');
-const ProductService = require('./product.service');
 const authMiddleware = require('./snipcartAuth.middleware');
 
 const HTTPStatus = require('http-status');

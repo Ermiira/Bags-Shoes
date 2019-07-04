@@ -4,14 +4,13 @@ var bodyParser = require('body-parser');
 const SqlProvider = require('./sql.provider');
 var app = express();
 const productRoutes = require('./product.routes');
+
+
+
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: false
   }));
-//mju qas me req.body.(emri te html name=)
-//const bodyParser=require('body-parser');
 
-
-//set port
 var port= process.env.PORT || 3000
 
 app.use("/api/products/", productRoutes)
