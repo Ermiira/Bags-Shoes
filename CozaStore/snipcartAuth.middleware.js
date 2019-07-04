@@ -1,22 +1,25 @@
 const HTTPStatus = require('http-status');
 const axios = require('axios');
+const SqlProvider = require('./sql.provider');
 
 const authMiddleware = async function (req, res, next) {
     if (!req.headers['snipcart-token']) {
         return res.status(HTTPStatus.FORBIDDEN).end();
     }
     
-    const admins = ['test@test.com', 'admir.kadriu@uni-pr.edu'];
+   // const admins = ['test@test.com', 'ermira.selmani98@gmail.com'];
 
+   const connection = await SqlProvider.getConnection();
+   await connection.query('SELECT userEmail FROM users', function (error, results, fields) {
     try {
-        const user = await axios.get('https://app.snipcart.com/api/usersessions/' + req.headers['snipcart-token'], {
+        const user =  axios.get('https://app.snipcart.com/api/usersessions/' + req.headers['snipcart-token'], {
             headers: {
                 Accept: 'application/json',
-                Authorization: 'Basic U1RfWlRnNE9HRTJNamt0TUdFeE55MDBZemMwTFRnM05qY3RaVEUzWVRZd09UUXpNelZrTmpNMk9UUXlOemMwTWpJeU1qRXlNakk0',
+                Authorization: 'Basic ODQ4NTUxMDYtMzQ1Ny00MWE3LWExOGQtYThmYjNlMjU3OWQxNjM2ODg5MjU4MTY2NjMyOTM0',
             },
         })
 
-        if(!admins.includes(user.data.email)){
+        if(!results.includes(user.data.email)){
             return res.status(HTTPStatus.FORBIDDEN).send().end();
         }
     } catch (err) {
@@ -24,6 +27,7 @@ const authMiddleware = async function (req, res, next) {
     }
 
     next();
+    
+    }); 
 }
-
 module.exports = authMiddleware;

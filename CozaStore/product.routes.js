@@ -70,7 +70,50 @@ router.get('/shoes', async function (req, res) {
 });
 
 
+router.get('/news', async function (req, res) {
 
+  const connection = await SqlProvider.getConnection();
+
+  await connection.query(`SELECT * FROM products where sector='New'`, function (error, results, fields) {
+    if (error) throw error;
+    res.render("product", { results: results })
+  });
+  res.json(results);
+});
+
+
+router.get('/deals', async function (req, res) {
+
+  const connection = await SqlProvider.getConnection();
+
+  await connection.query(`SELECT * FROM products where sector='Deals'`, function (error, results, fields) {
+    if (error) throw error;
+    res.render("product", { results: results })
+  });
+  res.json(results);
+});
+
+router.get('/male', async function (req, res) {
+
+  const connection = await SqlProvider.getConnection();
+
+  await connection.query(`SELECT * FROM products where gender='M'`, function (error, results, fields) {
+    if (error) throw error;
+    res.render("product", { results: results })
+  });
+  res.json(results);
+});
+
+router.get('/female', async function (req, res) {
+
+  const connection = await SqlProvider.getConnection();
+
+  await connection.query(`SELECT * FROM products where gender='F'`, function (error, results, fields) {
+    if (error) throw error;
+    res.render("product", { results: results })
+  });
+  res.json(results);
+});
 
 
 router.get('/bags/Wallets', async function (req, res) {
@@ -272,7 +315,7 @@ router.get("/inserto.html", function (req, res) {
   res.sendFile('inserto.html', { root: __dirname + '/views' });
 });
 
-router.post("/test", authMiddleware,upload.single('foto'), async function (req, res) {
+router.post("/test", authMiddleware ,upload.single('foto'), async function (req, res) {
   const connection = await SqlProvider.getConnection();
 
   const url = req.file.path
@@ -366,6 +409,7 @@ router.put('/:id', authMiddleware,async function (req, res) {
 
   if (req.body.name) {
     produkt.pName = req.body.name;
+    
   }
   if (req.body.price) {
     produkt.pPrice = req.body.price;
@@ -387,6 +431,31 @@ router.put('/:id', authMiddleware,async function (req, res) {
 });
 
 
+router.post('/webhook', async function (req, res) {
+  if (req.body.eventName === "order.completed") {
+      req.body.content.items.forEach(function(item){
+          // increase item order count
+
+          const pId = req.body.content.items.id
+          const connection =  SqlProvider.getConnection();
+           nrOrders=nrOrders+1;
+
+          const result =  connection.query('Update orders SET nrOrders where productId=?', [nrOrders, pId]);
+          const udpatedObject = result[0];
+
+          if (udpatedObject.affectedRows === 0) {
+            return res.send(HTTPStatus.NOT_FOUND).end();
+          }
+        
+          return res.send(HTTPStatus.OK).end();
+
+        });
+  
+      }
+  
+  console.log(req.body);
+  return res.sendStatus(HTTPStatus.OK).end();
+});
 
 
 
