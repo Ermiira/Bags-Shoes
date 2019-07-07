@@ -2,29 +2,8 @@
 	<div class="bg0 m-t-23 p-b-140 p-t-70">
 		<div class="container">
 			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10" style="display: inline;">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 "  >
-						<a href="" style="color: darkblue">All Products</a>
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="female">Women</a>
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-					<a href="male">Men</a>	
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="news">New Arrivals</a>
-					</button>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="deals">Deals</a>
-					</button>
-
-					
-				</div>
-					 
+				
+			
 
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10" style="display: inline;">
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 "  >
@@ -32,23 +11,13 @@
 					</button>
 
 				
+					{{#each bags1}}
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Wallets"> Wallets	</a>
+						<a href="bags/{{this.subcatName}}"> {{this.subcatName}}	</a>
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-					<a href="Belt">Belt Bags</a>	
-					</button>
+					{{/each}}
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Shoulder"> Shoulder Bags</a>
-					</button>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Clutch">Clutch Bags</a>
-					</button>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Accessories">Bags Accessories</a>
-					</button>
 				</div>
 
 
@@ -57,26 +26,12 @@
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 "  >
 					<a href="shoes" style="color: darkblue"> Shoes</a>	
 					</button>
-
+					{{#each shoes1}}
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Sandals"> Sandals	</a>
+						<a href="shoes/{{this.subcatName}}"> {{this.subcatName}}	</a>
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-					<a href="Heels">Heels</a>	
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Sneakers"> Sneakers</a>
-					</button>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Boots">Boots</a>
-					</button>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
-						<a href="Casual">Casual</a>
-					</button>
-
-
+					{{/each}}
 				</div>
 
 
@@ -340,12 +295,10 @@
 									data-item-name="{{this.pName}}"
 									data-item-price="{{this.pPrice}}"
 									data-item-weight=" {{this.pWeight}} "
-									data-item-url="https://calm-savannah-14250.herokuapp.com/product-detail"
-									data-item-image="/public/images/{{this.photoname}}"
-									data-item-max-quantity="6"
-									data-item-quantity-step="1"
+									data-item-url="api/products/{{this.productId}}"
+									data-item-image="/public/images/{{this.photoname}}"							
 									data-item-custom2-name="Color"
-									data-item-custom2-options="Black|White|Grey|Red "
+									data-item-custom2-options="{{this.colors}} "
 									data-item-description="{{this.pDescription}}">
 									Add to cart
 									</button>
@@ -376,6 +329,5 @@
 </script> --}}
 
 
-{{#each female1}}
-<h3> {{this.pName}}</h3>
-{{/each}}
+
+

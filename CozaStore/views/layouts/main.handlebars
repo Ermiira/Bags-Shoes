@@ -83,7 +83,7 @@
 									<a href="shoes">Shoes</a>
 
 									<ul class="sub-menu">
-										{{#each subcategory}}
+										{{#each shoes1}}
 										<li><a href="shoes/{{this.subcatName}}">{{this.subcatName}}  </a></li>
 										{{/each}}
 									</ul>
@@ -93,7 +93,7 @@
 								<li  >
 									<a href="bags">Bags</a>
 									<ul class="sub-menu">
-										{{#each subcategory}}
+										{{#each bags1}}
 										<li><a href="bags/{{this.subcatName}}">{{this.subcatName}}  </a></li>
 										{{/each}}
 										
@@ -229,6 +229,9 @@
 								Edit profile
 						</a>
 					 
+						<a href="/insert" class="m-b-5 flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								Inserto
+						</a>
 			
 						<a href="#" class="m-b-5 snipcart-user-logout flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 								Logout
@@ -254,25 +257,25 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="api/products/female" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="female" class="stext-107 cl7 hov-cl1 trans-04">
 								Women
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="api/products/male" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="male" class="stext-107 cl7 hov-cl1 trans-04">
 								Men
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="api/products/shoes" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="shoes" class="stext-107 cl7 hov-cl1 trans-04">
 								Shoes
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="api/products/bags" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="bags" class="stext-107 cl7 hov-cl1 trans-04">
 								Bags
 							</a>
 						</li>

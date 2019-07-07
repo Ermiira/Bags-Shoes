@@ -21,14 +21,18 @@ router.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 router.get('/', async function (req, res) {
 
   const connection = await SqlProvider.getConnection();
+   
 
-  await connection.query('SELECT * FROM products', function (error, results, fields) {
-    if (error) throw error;
 
-    res.render("product", { results: results });
-  });
-  res.json(results);
-});
+  
+      await connection.query('SELECT * FROM products', async function (error, results, fields) {
+        await connection.query('SELECT * FROM category', async function (error, cat, fields) {
+
+              res.render("product", { results: results,cat:cat });
+
+          });
+        });
+      });
 
 
 router.get("/about", function (req, res) {
@@ -44,47 +48,32 @@ router.get('/bags', async function (req, res) {
 
   const connection = await SqlProvider.getConnection();
 
-  await connection.query('SELECT * FROM `products` where `categoryId`=1 ', function (error, results, fields) {
-    if (error) throw error;
-    res.render("product", { results: results })
+
+  var sql1='select * from category c, subcategory s where c.categoryId=s.categoryId and c.categoryId=1';
+
+  await connection.query('SELECT * FROM `products` where `categoryId`=1 ',async function (error, results, fields) {
+    await connection.query(sql1, async function (error, bags1, fields) {
+ 
+    res.render("product", { results: results, bags1:bags1 });
+     });
   });
-  res.json(results);
 });
 
 router.get('/shoes', async function (req, res) {
 
   const connection = await SqlProvider.getConnection();
 
-  await connection.query('SELECT * FROM `products` where `categoryId`=2 ', function (error, results, fields) {
-    if (error) throw error;
-    res.render("product", { results: results })
+  var sql2='select * from category c, subcategory s where c.categoryId=s.categoryId and c.categoryId=2';
+
+  await connection.query('SELECT * FROM `products` where `categoryId`=2 ',async function (error, results, fields) {
+    await connection.query(sql2, async function (error, shoes1 , fields) {
+    
+    res.render("product", { results: results ,shoes1:shoes1 })
   });
-  res.json(results);
+  });  
 });
 
 
-router.get('/news', async function (req, res) {
-
-  const connection = await SqlProvider.getConnection();
-
-  await connection.query(`SELECT * FROM products where sector='New'`, function (error, results, fields) {
-    if (error) throw error;
-    res.render("product", { results: results })
-  });
-  res.json(results);
-});
-
-
-router.get('/deals', async function (req, res) {
-
-  const connection = await SqlProvider.getConnection();
-
-  await connection.query(`SELECT * FROM products where sector='Deals'`, function (error, results, fields) {
-    if (error) throw error;
-    res.render("product", { results: results })
-  });
-  res.json(results);
-});
 
 router.get('/male', async function (req, res) {
 
@@ -188,6 +177,17 @@ router.get('/shoes/Sandals', async function (req, res) {
 });
 
 
+// router.get('/shoes/:id', async function (req, res) {
+
+//   const connection = await SqlProvider.getConnection();
+
+//   await connection.query('"SELECT * FROM `products` where categoryId=2 and subcategoryId='+ req.params.id +'"', function (error, results, fields) {
+//     if (error) throw error;
+//     res.render("product", { results: results })
+//   });
+//   res.json(results);
+// });
+
 
 router.get('/shoes/Heels', async function (req, res) {
 
@@ -267,15 +267,13 @@ router.get('/:id', async function (req, res) {
 
   var productId= req.params.id;
   var sql='select * from products p,category c,subcategory s  where p.categoryId=c.categoryId and p.subcategoryId=s.subcategoryId and p.categoryId=s.categoryId and p.productId='+ productId;
-
-  await connection.query(sql , function (error, prod, fields) {
-    if (error) {
-      console.log("Error " + error);
-    }
+  
+  await connection.query(sql , async function (error, prod, fields) {
+    await connection.query(`Select * from products where sector='Like'`, async function(error,like,fields){
    
-    res.render("product-detail",{ prod: prod});
+    res.render("product-detail",{ prod: prod , like:like});
   });
-   //res.json(prod);
+ });
 
 });
 
@@ -294,43 +292,12 @@ router.delete('/:id', async function (req, res) {
 
 
 
-router.get("/insert", function (req, res) {
-
-  res.render('inserto');
-});
 
 
-
-
-
-
-
-router.post('/:id/photos', authMiddleware,async function (req, res) {
-
-  const url = './public/images/' + req.params.photos;
-  req.files.foto.mv(url, async function (error) {
-    if (error) {
-      return res.send(error);
-    }
-    const connection = await SqlProvider.getConnection();
-
-    const result = await connection.query('UPDATE `products` SET ? where productId=?', [
-      {
-        photourl: url
-      },
-      req.params.id]);
-
-    const udpatedObject = result[0];
-
-    if (udpatedObject.affectedRows === 0) {
-      return res.send(HTTPStatus.NOT_FOUND).end();
-    }
-
-    return res.send(HTTPStatus.OK).end();
-  });
-});
 
 router.use(express.static('public'));
+
+
 
 
 router.post('/',authMiddleware,async function (req, res) {
@@ -362,6 +329,7 @@ router.post('/',authMiddleware,async function (req, res) {
 
 
 
+
 router.put('/:id', authMiddleware,async function (req, res) {
 
   const produkt = {}
@@ -390,6 +358,7 @@ router.put('/:id', authMiddleware,async function (req, res) {
 });
 
 
+
 router.post('/webhook', async function (req, res) {
   if (req.body.eventName === "order.completed") {
       req.body.content.items.forEach(function(item){
@@ -398,7 +367,7 @@ router.post('/webhook', async function (req, res) {
           const pId = req.body.content.items.id
           const connection =  SqlProvider.getConnection();
 
-          const result =  connection.query('Update orders SET nrOrders='+nrOrders +'+1 where productId='+pId);
+          const result =  connection.query('" Update orders SET nrOrders='+nrOrders +'+1 where productId='+pId+'"');
           const udpatedObject = result[0];
 
           if (udpatedObject.affectedRows === 0) {

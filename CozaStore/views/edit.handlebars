@@ -53,16 +53,17 @@ button, input[type='button'] {
     <strong> Insert New Product </strong> 
   </div>
   <div class="card-body card-block">
-    <form action="/test" method="post"  enctype="multipart/form-data" autocomplete="off" class="form-horizontal">
-    
-      
+   {{#each results}}
 
+    <form action="/editimi/{{this.productId}}" method="put"  enctype="multipart/form-data" autocomplete="off" class="form-horizontal">
+    
+     
       <div class="row form-group">
         <div class="col col-md-3">
           <label for="text-input" class=" form-control-label"> Product Name:</label>
         </div>
         <div class="col-12 col-md-9">
-          <input type="text" id="text-input" name="emri1" placeholder="Name of Product" class="form-control">
+          <input type="text" id="text-input" name="emri1" placeholder="Name of Product" value={{this.pName}} class="form-control">
          
         </div>
       </div>
@@ -72,7 +73,7 @@ button, input[type='button'] {
           <label for="email-input" class=" form-control-label"> Price </label>
         </div>
         <div class="col-12 col-md-9">
-          <input type="text" id="text-input" name="cmimi1" placeholder="Price of Product" class="form-control">
+          <input type="text" id="text-input" name="cmimi1" placeholder="Price of Product" value={{this.pPrice}} class="form-control">
           
         </div>
       </div>
@@ -80,20 +81,20 @@ button, input[type='button'] {
 
     <div class="row form-group">
         <div class="col col-md-3">
-          <label for="email-input" class=" form-control-label"> Weight </label>
+          <label for="text-input" class=" form-control-label"> Weight </label>
         </div>
         <div class="col-12 col-md-9">
-          <input type="text" id="text-input" name="pesha1" placeholder="Weight of Product" class="form-control">
+          <input type="text" id="text-input" name="pesha1" placeholder="Weight of Product" value="{{this.pWeight}}" class="form-control">
           
         </div>
       </div>
 
    <div class="row form-group">
         <div class="col col-md-3">
-          <label for="email-input" class=" form-control-label"> Material </label>
+          <label for="text-input" class=" form-control-label"> Material </label>
         </div>
         <div class="col-12 col-md-9">
-          <input type="text" id="text-input" name="materiali" placeholder="Material of Product" class="form-control">
+          <input type="text" id="text-input" name="materiali" placeholder="Material of Product" value="{{this.material}}" class="form-control">
           
         </div>
       </div>
@@ -105,7 +106,9 @@ button, input[type='button'] {
         </div>
         <div class="col-12 col-md-9">
           <textarea name="pershkrimi1" id="textarea-input" rows="4" placeholder="Describe..."
-            class="form-control"></textarea>
+            class="form-control">
+            {{this.pDescription}}
+            </textarea>
         </div>
       </div>
 
@@ -218,7 +221,7 @@ button, input[type='button'] {
           </div>
         </div>
       </div>
-      kom 
+      
 
 
       
@@ -234,10 +237,10 @@ button, input[type='button'] {
         </div>
       </div>
 
-     
+     {{/each}}
 
     <button type="submit" class="btn btn-primary ">
-        Insert 
+       Edit
     </button>
 
     

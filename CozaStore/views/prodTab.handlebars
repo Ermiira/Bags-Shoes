@@ -1,0 +1,61 @@
+<br>
+<br><br><br><br>
+<div>
+    <div class="table-responsive m-b-40">
+    <table class="table table-borderless table-data3 .table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Weight</th>
+                <th>Material</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Sector</th>
+                <th>Gender</th>
+                <th>Colors</th>
+                <th>Numbers</th>
+                <th>Photo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td>{{this.pName}}</td>
+                <td>{{this.pPrice}}</td>
+                <td>{{this.pWeight}}</td>
+                <td>{{this.material}}</td>
+                <td>{{this.pDescritpion}}</td>
+                <td>{{this.categoryId}}</td>
+                <td>{{this.subcategoryId}}</td>
+                <td>{{this.sector}}</td>
+                <td>{{this.gender}}</td>
+                <td>{{this.colors}}</td>
+                <td>{{this.numbers}}</td>
+                <td>{{this.photoname}}</td>
+                <td>
+                    <div class="table-data-feature">
+
+                        <button class="item btn btn-success" data-toggle="tooltip" data-placement="top" title=""
+                            data-original-title="Edit" >
+                            <a href="/edit/{{this.productId}}"> Edit 
+                            
+                            </a>
+                        </button>
+
+                        <button class="item btn btn-danger" data-toggle="tooltip" data-placement="top" title=""
+                            data-original-title="Delete">
+                             <a href="#"></a> Delete
+                             
+                        </button>
+
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+</div>
