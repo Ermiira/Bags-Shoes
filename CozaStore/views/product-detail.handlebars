@@ -14,10 +14,13 @@
 					</a>
 
 					<a href="product" class="stext-109 cl8 hov-cl1 trans-04">
-						Women
+						{{this.catName}}
 						<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 					</a>
-
+					<a href="product" class="stext-109 cl8 hov-cl1 trans-04">
+						{{this.subcatName}}
+						<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+					</a>
 					<span class="stext-109 cl4">
 						{{this.pName}} 
 					</span>
@@ -52,7 +55,7 @@
 									</div>
 								</div>
 
-								<div class="item-slick3" data-thumb="images/1d.jpg">
+								<div class="item-slick3" data-thumb="images/{{this.productId}}d.jpg">
 									<div class="wrap-pic-w pos-relative">
 										<img src="/public/images/{{this.productId}}d.jpg" alt="IMG-PRODUCT">
 
@@ -94,9 +97,7 @@
 									data-item-price="{{this.pPrice}}"
 									data-item-weight=" {{this.pWeight}} "
 									data-item-url="api/product/{{this.productId}}"
-									data-item-image="/public/images/{{this.photoname}}"
-									data-item-max-quantity="6"
-									data-item-quantity-step="1"
+									data-item-image="/public/images/{{this.photoname}}"									
 									data-item-custom2-name="Color"
 									data-item-custom2-options="{{this.colors}}"
 									data-item-custom3-name="Size"
@@ -222,7 +223,7 @@
 			
 
 			<span class="stext-107 cl6 p-lr-25">
-				Categories: Sneakers , Women
+				Categories:  {{this.catName}}  ,  {{this.subcatName}} , 
 			</span>
 		</div>
 		</div>

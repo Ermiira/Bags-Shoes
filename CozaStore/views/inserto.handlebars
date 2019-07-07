@@ -1,59 +1,209 @@
 
-<h1 id="id1">Insert products</h1>
-<div class="korniza">
-<form action="/api/products/test" method="POST" enctype="multipart/form-data" ><div class="tss">
-Product Name: <input class="form-control" type="text" name="emri1" required/><br><br>
-Price: <input class="form-control" type="text" name="cmimi1" required /><br><br>
-Weight: <input class="form-control" type="number" name="pesha1" required /><br><br>
-Description: <input id="pershkrimi" class="inputet" type="text" name="pershkrimi1" required /><br><br>
-Category: <select class="inputet" name="kategoria1" required>
-    <option value="1">1</option>
-    <option value="2">2</option>
-  </select><br><br>
-Subcategory: <select class="inputet" name="nenkategoria1" >
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    
-  </select><br><br>
-Photo: <input class="inputet" type="file" name="foto" required /><br><br>
-<br><br>
-Gender : <select class="inputet" name="gjinia" >
-    <option value="F">F</option>
-    <option value="M">M</option>
-  </select>
-  <br><br>
-
-Sector: <select class="inputet" name="sektori" >
-    <option value="New">New</option>
-    <option value="Deals">Deals</option>
-   
-  </select>
-Colors: <select class="inputet" name="ngjyra" >
-    <option value="Red | Blue | Grey | Green | Yellow | Pink">Red | Blue | Grey | Green | Yellow | Pink</option>
-    <option value="Black | White | Grey">Black | White | Grey</option>
-    
-  </select>
-
-  <br><br>
-
-Numbers: <select class="inputet" name="numri" >
-    <option value="36|37|38|38|40">36|37|38|38|40</option>
-    <option value="41|42|43|44|45">41|42|43|44|45</option>  
-  </select>
-
-  <br><br>
-
-Material: <select class="inputet" name="materiali" >
-    <option value="Leather">Leather</option>
-    <option value="Textile">Textile</option>
-    <option value="Pinatex">Pinatex</option>
-   
-  </select>
-  <br><br>
-  <button id="butoni" class=".btn-primary"> Insert </button>
+<br>
+<br>
+<br>
+<div class="col-lg-6 " >
+  <div class="card">
+  <div class="card-header">
+    <strong> Insert New Product </strong> 
   </div>
-</form>
+  <div class="card-body card-block">
+    <form action="/test" method="post" enctype="multipart/form-data" class="form-horizontal">
+    
+      
+
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="text-input" class=" form-control-label"> Product Name:</label>
+        </div>
+        <div class="col-12 col-md-9">
+          <input type="text" id="text-input" name="emri1" placeholder="Name of Product" class="form-control">
+         
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="email-input" class=" form-control-label"> Price </label>
+        </div>
+        <div class="col-12 col-md-9">
+          <input type="text" id="text-input" name="cmimi1" placeholder="Price of Product" class="form-control">
+          
+        </div>
+      </div>
+    
+
+    <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="email-input" class=" form-control-label"> Weight </label>
+        </div>
+        <div class="col-12 col-md-9">
+          <input type="text" id="text-input" name="pesha1" placeholder="Weight of Product" class="form-control">
+          
+        </div>
+      </div>
+
+   <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="email-input" class=" form-control-label"> Material </label>
+        </div>
+        <div class="col-12 col-md-9">
+          <input type="text" id="text-input" name="materiali" placeholder="Material of Product" class="form-control">
+          
+        </div>
+      </div>
+
+
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="textarea-input" class=" form-control-label">Description</label>
+        </div>
+        <div class="col-12 col-md-9">
+          <textarea name="pershkrimi1" id="textarea-input" rows="4" placeholder="Describe..."
+            class="form-control"></textarea>
+        </div>
+      </div>
+
+
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="select" class=" form-control-label"> Select Category </label>
+        </div>
+        <div class="col-12 col-md-9">
+          <select name="kategoria1" id="select" class="form-control">
+             
+            <option value="1"> Bags </option>
+            <option value="2"> Shoes </option>
+            
+          </select>
+        </div>
+      </div>
+<br>
+
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="select" class=" form-control-label"> Select Subcategory </label>
+        </div>
+        <div class="col-12 col-md-9">
+          <select name="nenkategoria1" id="select" class="form-control">
+             
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+
+          </select>
+        </div>
+      </div>
+
+<br>
+     
+       <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="select" class=" form-control-label"> Select Sector </label>
+        </div>
+        <div class="col-12 col-md-9">
+          <select name="sektori" id="select" class="form-control">
+             
+            <option value="New"> News </option>
+            <option value="Deals"> Deals </option>
+            
+          </select>
+        </div>
+      </div>
+
+<br>
+
+ <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="select" class=" form-control-label"> Gender </label>
+        </div>
+        <div class="col-12 col-md-9">
+          <select name="gjinia" id="select" class="form-control">
+             
+            <option value="F"> F </option>
+            <option value="M"> M </option>
+            
+          </select>
+        </div>
+      </div>
+<br>
+      
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label class=" form-control-label">Colors</label>
+        </div>
+        <div class="col col-md-9">
+          <div class="form-check">
+            <div class="radio">
+              <label for="radio1" class="form-check-label ">
+                <input type="radio" id="radio1" name="ngjyra" value="Red | Blue | Grey | Green | Yellow | Pink" class="form-check-input">Red | Blue | Grey | Green | Yellow | Pink 
+              </label>
+            </div>
+            <div class="radio">
+              <label for="radio2" class="form-check-label ">
+                <input type="radio" id="radio2" name="ngjyra" value="Black | White | Grey" class="form-check-input">Black | White | Grey
+              </label>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+
+<br>
+
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label class=" form-control-label">Numbers</label>
+        </div>
+        <div class="col col-md-9">
+          <div class="form-check">
+            <div class="radio">
+              <label for="radio3" class="form-check-label ">
+                <input type="radio" id="radio3" name="numri" value="36 | 37 | 38 | 38 | 40 " class="form-check-input">36 | 37 | 38 | 38 | 40 
+              </label>
+            </div>
+            <div class="radio">
+              <label for="radio4" class="form-check-label ">
+                <input type="radio" id="radio4" name="numri" value="41 | 42 | 43 | 44 | 45" class="form-check-input">41 | 42 | 43 | 44 | 45
+              </label>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      
+
+
+      
+<br>
+
+      
+      <div class="row form-group">
+        <div class="col col-md-3">
+          <label for="file-input" class=" form-control-label">Photo of Product</label>
+        </div>
+        <div class="col-12 col-md-9">
+          <input type="file" id="file-input" name="foto" class="form-control-file">
+        </div>
+      </div>
+
+     
+
+    <button type="submit" class="btn btn-primary ">
+        Insert 
+    </button>
+
+    
+ 
+
+    </form>
+
+  </div>
+  
 </div>
+
+</div>
+
+<br><br><br>

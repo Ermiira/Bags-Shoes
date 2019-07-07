@@ -8,14 +8,14 @@ const authMiddleware = async function (req, res, next) {
     }
     
    
-
    const connection = await SqlProvider.getConnection();
    await connection.query('SELECT userEmail FROM users', function (error, results, fields) {
+
     try {
         const user =  axios.get('https://app.snipcart.com/api/usersessions/' + req.headers['snipcart-token'], {
             headers: {
                 Accept: 'application/json',
-                Authorization: 'Basic ODQ4NTUxMDYtMzQ1Ny00MWE3LWExOGQtYThmYjNlMjU3OWQxNjM2ODg5MjU4MTY2NjMyOTM0',
+                Authorization: 'Basic U1RfTXpCbE1HWXlZVFF0TWpjM015MDBZelUyTFRrNE5UY3RPVFpqTnpGaU9UUTRabVUwTmpNMk9UUXlOemMyTWpNek56QTVNakV6',
             },
         })
 

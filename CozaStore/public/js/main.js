@@ -271,6 +271,9 @@
     $('.js-show-modal1').on('click',function(e){
         e.preventDefault();
         $('.js-modal1').addClass('show-modal1');
+        //js-modal1(klasa e kodit qe shfaqet) 
+        //shtoje ne klasen show-modal1(klasa te butoni nclick qe shfaqet) te produktet
+
     });
 
     $('.js-hide-modal1').on('click',function(){
